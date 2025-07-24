@@ -1,0 +1,15 @@
+C:\Users\Thekla\Documents\Programmiersprachen\C#\Lernmappe\CSharp\FizzBuzz\bin\Debug\net9.0\FizzBuzz.exe
+C:\Users\Thekla\Documents\Programmiersprachen\C#\Lernmappe\CSharp\FizzBuzz\bin\Debug\net9.0\FizzBuzz.deps.json
+C:\Users\Thekla\Documents\Programmiersprachen\C#\Lernmappe\CSharp\FizzBuzz\bin\Debug\net9.0\FizzBuzz.runtimeconfig.json
+C:\Users\Thekla\Documents\Programmiersprachen\C#\Lernmappe\CSharp\FizzBuzz\bin\Debug\net9.0\FizzBuzz.dll
+C:\Users\Thekla\Documents\Programmiersprachen\C#\Lernmappe\CSharp\FizzBuzz\bin\Debug\net9.0\FizzBuzz.pdb
+C:\Users\Thekla\Documents\Programmiersprachen\C#\Lernmappe\CSharp\FizzBuzz\obj\Debug\net9.0\FizzBuzz.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Thekla\Documents\Programmiersprachen\C#\Lernmappe\CSharp\FizzBuzz\obj\Debug\net9.0\FizzBuzz.AssemblyInfoInputs.cache
+C:\Users\Thekla\Documents\Programmiersprachen\C#\Lernmappe\CSharp\FizzBuzz\obj\Debug\net9.0\FizzBuzz.AssemblyInfo.cs
+C:\Users\Thekla\Documents\Programmiersprachen\C#\Lernmappe\CSharp\FizzBuzz\obj\Debug\net9.0\FizzBuzz.csproj.CoreCompileInputs.cache
+C:\Users\Thekla\Documents\Programmiersprachen\C#\Lernmappe\CSharp\FizzBuzz\obj\Debug\net9.0\FizzBuzz.sourcelink.json
+C:\Users\Thekla\Documents\Programmiersprachen\C#\Lernmappe\CSharp\FizzBuzz\obj\Debug\net9.0\FizzBuzz.dll
+C:\Users\Thekla\Documents\Programmiersprachen\C#\Lernmappe\CSharp\FizzBuzz\obj\Debug\net9.0\refint\FizzBuzz.dll
+C:\Users\Thekla\Documents\Programmiersprachen\C#\Lernmappe\CSharp\FizzBuzz\obj\Debug\net9.0\FizzBuzz.pdb
+C:\Users\Thekla\Documents\Programmiersprachen\C#\Lernmappe\CSharp\FizzBuzz\obj\Debug\net9.0\FizzBuzz.genruntimeconfig.cache
+C:\Users\Thekla\Documents\Programmiersprachen\C#\Lernmappe\CSharp\FizzBuzz\obj\Debug\net9.0\ref\FizzBuzz.dll

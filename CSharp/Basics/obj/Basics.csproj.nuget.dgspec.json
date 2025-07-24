@@ -1,35 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\_Daten\\C#\\Lernmappe\\CSharp\\Basics\\Basics.csproj": {}
+    "C:\\Users\\Thekla\\Documents\\Programmiersprachen\\C#\\Lernmappe\\CSharp\\Basics\\Basics.csproj": {}
   },
   "projects": {
-    "C:\\_Daten\\C#\\Lernmappe\\CSharp\\Basics\\Basics.csproj": {
+    "C:\\Users\\Thekla\\Documents\\Programmiersprachen\\C#\\Lernmappe\\CSharp\\Basics\\Basics.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\_Daten\\C#\\Lernmappe\\CSharp\\Basics\\Basics.csproj",
+        "projectUniqueName": "C:\\Users\\Thekla\\Documents\\Programmiersprachen\\C#\\Lernmappe\\CSharp\\Basics\\Basics.csproj",
         "projectName": "Basics",
-        "projectPath": "C:\\_Daten\\C#\\Lernmappe\\CSharp\\Basics\\Basics.csproj",
-        "packagesPath": "C:\\Users\\3474\\.nuget\\packages\\",
-        "outputPath": "C:\\_Daten\\C#\\Lernmappe\\CSharp\\Basics\\obj\\",
+        "projectPath": "C:\\Users\\Thekla\\Documents\\Programmiersprachen\\C#\\Lernmappe\\CSharp\\Basics\\Basics.csproj",
+        "packagesPath": "C:\\Users\\Thekla\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Thekla\\Documents\\Programmiersprachen\\C#\\Lernmappe\\CSharp\\Basics\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\3474\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\TXS.Config"
+          "C:\\Users\\Thekla\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/txsDev/_packaging/txsFeed%40Local/nuget/v3/index.json": {},
-          "https://txs-sptf02/tfs/Internes/DevTools/_packaging/DevTools/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
@@ -47,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -68,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

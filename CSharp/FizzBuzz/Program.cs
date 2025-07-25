@@ -5,6 +5,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        FizzBuzzy.FizzBuzzGame();
+        FizzBuzzy game = new(Console.In, Console.Out);
+        game.FizzBuzzInput();
+        
     }
 }

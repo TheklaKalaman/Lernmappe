@@ -1,58 +1,78 @@
-public class FizzBuzz
+using System.Runtime.CompilerServices;
+
+namespace FizzBuzz;
+
+internal class FizzBuzzOutput
+{
+    public const String FizzBuzz = "FizzBuzz!";
+    public const String Fizz = "Fizz!";
+    public const String Buzz = "Buzz!";
+}
+
+internal class FizzBuzzLogik
+{
+    public string ReturnLogik(int divident)
+    {
+        // String FizzBuzz = "FizzBuzz!";
+        // String Fizz = "Fizz!";
+        // String Buzz = "Buzz!";
+
+        if (divident % 3 == 0 && divident % 5 == 0)
+        {
+            return FizzBuzzOutput.FizzBuzz;
+            // Console.WriteLine(FizzBuzz);
+        }
+        else if (divident % 3 == 0)
+        {
+            return FizzBuzzOutput.Fizz;
+            // Console.WriteLine(Fizz);
+        }
+        else if (divident % 5 == 0)
+        {
+            return FizzBuzzOutput.Buzz;
+            // Console.WriteLine(Buzz);
+        }
+        else
+        {
+            return divident.ToString();
+            // Console.WriteLine(divident.ToString());
+        }
+        // return "";
+    }
+
+}
+
+public class FizzBuzzy
 {
     public static void FizzBuzzGame()
     {
         Console.WriteLine("Bitte geben Sie eine Zahl ein:");
-        string? n = Console.ReadLine();
+        int n = FizzBuzzInput();
         FizzBuzzCounter(n);
     }
 
-    //FizzBuzzLogik
-    private static String FizzBuzzLogik(int divident)
+
+    private static int FizzBuzzInput()
     {
-        String FizzBuzz = "FizzBuzz!";
-        String Fizz = "Fizz!";
-        String Buzz = "Buzz!";
+        int number = 0;
 
-        if (divident % 3 == 0 && divident % 5 == 0)
-        {
-            Console.WriteLine(FizzBuzz);
-        }
-        else if (divident % 3 == 0)
-        {
-            Console.WriteLine(Fizz);
-        }
-        else if (divident % 5 == 0)
-        {
-            Console.WriteLine(Buzz);
-        }
-        else
-        {
-            Console.WriteLine(divident.ToString());
-        }
-        return "";
-    }
-
-    //FizzBuzzCounter
-    private static String FizzBuzzCounter(String n)
-    {
-
-        int number = int.Parse(n);
-
-        String result = "";
-        if (number <= 0 || int.TryParse(n, out number) == false || n == null || n == "")
+        while (!int.TryParse(Console.ReadLine(), out number) || number <= 0)
         {
             Console.WriteLine("Bitte geben Sie eine positive Zahl ein.");
-            FizzBuzzCounter(Console.ReadLine());
         }
-        else
+
+        return number;
+    }
+
+    private static void FizzBuzzCounter(int number)
+    {
+        var logik = new FizzBuzzLogik();
+
+        for (int divident = 1; divident <= number; divident++)
         {
-            for (int divident = 1; divident <= number; divident++)
-            {
-                FizzBuzzLogik(divident);
-            }
+            String output = logik.ReturnLogik(divident);
+            Console.WriteLine(output);
         }
-        return result;
     }
 }
     

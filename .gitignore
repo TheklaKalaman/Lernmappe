@@ -403,3 +403,8 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio
+CSharp/FizzBuzzTDD.Test/FizzBuzzTDD.Test.csproj
+CSharp/FizzBuzzTDD.Test/UnitTest1.cs
+CSharp/FizzBuzzTDD/FizzBuzzTDD.csproj
+CSharp/FizzBuzzTDD/Program.cs
+CSharp/FizzBuzzTDD/FizzBuzzGame.cs

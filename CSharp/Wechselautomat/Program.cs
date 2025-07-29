@@ -2,7 +2,59 @@
 {
     public static void Main(string[] args)
     {
-        var dummy = Wechselautomat.Wechselautomat.Start("10.50");
-        Console.WriteLine(dummy);
+        Console.WriteLine("Wechselautomat gestartet. Geben Sie einen Preis ein (z.B. 10.50):");
+        string? preis = Console.ReadLine();
+
+        if (string.IsNullOrEmpty(preis))
+        {
+            Console.WriteLine("Preis darf nicht leer sein.");
+            return;
+        }
+
+        Console.WriteLine("Geben Sie den bezahlten Betrag ein (z.B. 20.00):");
+        string? bezahlt = Console.ReadLine();
+
+        if (string.IsNullOrEmpty(bezahlt))
+        {
+            Console.WriteLine("Bezahlter Betrag darf nicht leer sein.");
+            return;
+        }
+
+        Console.WriteLine("Berechne Wechselgeld...");
+
+        try
+        {
+            string? automat = Wechselautomat.Wechselautomat.Start(preis, bezahlt);
+
+            if (automat == null)
+            {
+                Console.WriteLine("Kein Wechselgeld erforderlich.");
+                return;
+            }
+
+            decimal betrag = decimal.Parse(bezahlt) - decimal.Parse(preis);
+            Console.WriteLine("Wechselgeld: " + betrag + "");
+            Console.WriteLine(automat);
+        }
+
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine($"Fehler: {ex.Message}");
+        }
+        
+        catch (FormatException)
+        {
+            Console.WriteLine("Fehler: Ungültiges Format. Bitte geben Sie einen gültigen Betrag ein.");
+        }
+        
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ein unerwarteter Fehler ist aufgetreten: {ex.Message}");
+        }
+        finally
+        {
+            Console.WriteLine("Wechselautomat beendet.");
+        }
+        
     }
 }

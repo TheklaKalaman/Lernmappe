@@ -1,29 +1,7 @@
-﻿using System.Runtime.InteropServices;
+﻿namespace Wechselautomat.Test;
 
-namespace Wechselautomat.Test;
-
-public class UnitTest1
+public class Positivtests
 {
-    [Theory]
-    [InlineData("2,22", "2 Euro, 22 Cent")]
-    [InlineData("3,46", "3 Euro, 46 Cent")]
-    public void AutomatNimmtBetragEntgegen_GibtStringZurueck(String eingabe, String erwartung)
-    {
-        var rueckgabe = Wechselautomat.Start(eingabe);
-        Assert.Equal(erwartung, rueckgabe);
-    }
-
-    [Theory]
-    [InlineData(2.34)]
-    [InlineData(0.01)]
-    [InlineData(3.46)]
-    [InlineData(3536.34)]
-    public void GeldwertWirdEingegeben_GeldwertObjektKommtRaus(decimal wert)
-    {
-        string geldwert = Geldwert.Bezeichnung(wert);
-        Assert.Equal(Geldwert.Bezeichnung(wert), geldwert);
-    }
-
     [Fact]
     public void InScheineUndMuenzenZerlegen_EinfacherBetrag()
     {
@@ -106,5 +84,33 @@ public class UnitTest1
                                   "3 x 1 Cent Münzen";
 
         Assert.Equal(erwartung, result);
+    }
+
+    [Fact]
+    public void EdgeCase_KeinWechselgeld()
+    {
+        var dict = new Dictionary<decimal, int>();
+        var result = GeldFormatierer.FormatierungDesWechselgeldTexts(dict);
+        Assert.Equal(string.Empty, result);
+    }
+
+    [Theory]
+    [InlineData(9.50, 10.00)]
+    [InlineData(20.00, 50.00)]
+    [InlineData(0.99, 1.00)]
+    [InlineData(1.23, 2.00)]
+    [InlineData(5.75, 10.00)]
+    public void PreisWirdGenannt_BetragWirdBezahltUndAbgezogen(decimal preis, decimal bezahlt)
+    {
+        var expected = bezahlt - preis;
+        decimal wechselgeld = Bezahlvorgang.BerechneWechselgeld(preis, bezahlt);
+        Assert.Equal(expected, wechselgeld);
+    }
+
+    [Fact]
+    public void GibEuroWertOhneTrennzeichenEin_WandleInGeldwertUm()
+    {
+        decimal wert = 5;
+        Assert.Equal("5 Euro", Geldwert.Bezeichnung(wert));
     }
 }

@@ -5,7 +5,7 @@ public class GeldZerleger
     public static Dictionary<EuroUndCents.Geldstueck, int> InScheineUndMuenzenZerlegen(decimal betrag)
     {
         if (betrag <= 0)
-            throw new ArgumentException("Betrag darf nicht negativ oder 0 sein.");
+            throw new ArgumentException(Fehlermeldungen.BetragNegativOderNull);
 
         var result = new Dictionary<EuroUndCents.Geldstueck, int>();
 

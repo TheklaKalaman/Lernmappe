@@ -1,4 +1,6 @@
-﻿public class Program
+﻿using Wechselautomat;
+
+public class Program
 {
     public static void Main(string[] args)
     {
@@ -37,19 +39,14 @@
             Console.WriteLine(automat);
         }
 
-        catch (ArgumentException ex)
-        {
-            Console.WriteLine($"Fehler: {ex.Message}");
-        }
-        
         catch (FormatException)
         {
-            Console.WriteLine("Fehler: Ungültiges Format. Bitte geben Sie einen gültigen Betrag ein.");
+            Console.WriteLine(Fehlermeldungen.FalschesFormat);
         }
         
         catch (Exception ex)
         {
-            Console.WriteLine($"Ein unerwarteter Fehler ist aufgetreten: {ex.Message}");
+            Console.WriteLine(Fehlermeldungen.UnerwarteterFehler + ex.Message);
         }
         finally
         {

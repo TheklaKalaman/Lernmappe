@@ -13,8 +13,5 @@ public class GeldFormatierer
                             : (x.Value == 1 ? "Münze" : "Münzen"))));
 
     public static decimal ParseBetrag(string eingabe)
-    {
-        string? normiert = eingabe.Replace('.', ',');
-        return decimal.Parse(normiert, System.Globalization.CultureInfo.GetCultureInfo("de-DE"));
-    }
+        => decimal.Parse(eingabe.Replace('.', ','), System.Globalization.CultureInfo.GetCultureInfo("de-DE"));
 }

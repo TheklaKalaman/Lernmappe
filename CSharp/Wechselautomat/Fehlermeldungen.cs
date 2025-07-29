@@ -12,4 +12,6 @@ public static class Fehlermeldungen
         "Preis und bezahlter Betrag dürfen nicht negativ oder 0 sein.";
     public static readonly string UnerwarteterFehler =
         "Ein unerwarteter Fehler ist aufgetreten: ";
+    public static readonly string BetragIstZuNiedrig =
+        "Der bezahlte Betrag muss mindestens so hoch sein wie der Preis.";
 }

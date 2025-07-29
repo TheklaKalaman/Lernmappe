@@ -5,9 +5,9 @@ public class Bezahlvorgang
     public static decimal BerechneWechselgeld(decimal preis, decimal bezahlt)
     {
         if (preis < 0 || bezahlt < 0)
-            throw new ArgumentException("Preis und bezahlter Betrag dürfen nicht negativ sein.");
+            throw new ArgumentException(Fehlermeldungen.BetragIstNegativOderNull);
         if (bezahlt < preis)
-            throw new ArgumentException("Der bezahlte Betrag muss mindestens so hoch sein wie der Preis.");
+            throw new ArgumentException(Fehlermeldungen.BetragIstZuNiedrig);
         return bezahlt - preis;
     }
 }

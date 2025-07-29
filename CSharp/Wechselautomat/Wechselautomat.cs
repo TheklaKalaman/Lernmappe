@@ -13,10 +13,11 @@ public static class Wechselautomat
         if (preisDecimal <= 0 || bezahltDecimal <= 0)
             throw new ArgumentException(Fehlermeldungen.BetragNegativOderNull);
 
-        string? eingabe = Bezahlvorgang.BerechneWechselgeld(preisDecimal, bezahltDecimal).ToString(); 
-        decimal betrag = GeldFormatierer.ParseBetrag(eingabe);
-        Dictionary<EuroUndCents.Geldstueck, int> wechselgeld = GeldZerleger.InScheineUndMuenzenZerlegen(betrag);
-
+        decimal wechselgeldBetrag = Bezahlvorgang.BerechneWechselgeld(preisDecimal, bezahltDecimal);
+        if (wechselgeldBetrag == 0)
+            return null;
+        var wechselgeld = GeldZerleger.InScheineUndMuenzenZerlegen(wechselgeldBetrag);
+        
         return GeldFormatierer.FormatierungDesWechselgeldTexts(wechselgeld);
     }        
 }

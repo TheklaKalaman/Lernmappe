@@ -2,19 +2,17 @@ namespace Wechselautomat;
 
 public class GeldFormatierer
 {
-    public static string? FormatierungDesWechselgeldTexts(Dictionary<decimal, int> dict)
+    public static string? FormatierungDesWechselgeldTexts(Dictionary<EuroUndCents.Geldstueck, int> dict)
     {
         List<string> teile = new();
 
-        foreach (var x in dict.OrderByDescending(x => x.Key))
+        foreach (var x in dict.OrderByDescending(x => x.Key.Wert))
         {
-            decimal wert = x.Key;
+            var geldstueck = x.Key;
             int anzahl = x.Value;
 
-            bool istEuro = wert >= 1;
-            string wertText = istEuro
-                ? $"{(int)wert} Euro"
-                : $"{(int)(wert * 100)} Cent";
+            bool istEuro = geldstueck.IstEuro;
+            string wertText = geldstueck.Bezeichnung;
 
             string einheit = istEuro
                 ? (anzahl == 1 ? "Schein" : "Scheine")

@@ -15,7 +15,7 @@ public static class Wechselautomat
 
         string? eingabe = Bezahlvorgang.BerechneWechselgeld(preisDecimal, bezahltDecimal).ToString(); 
         decimal betrag = GeldFormatierer.ParseBetrag(eingabe);
-        Dictionary<decimal, int> wechselgeld = GeldZerleger.InScheineUndMuenzenZerlegen(betrag);
+        Dictionary<EuroUndCents.Geldstueck, int> wechselgeld = GeldZerleger.InScheineUndMuenzenZerlegen(betrag);
 
         return GeldFormatierer.FormatierungDesWechselgeldTexts(wechselgeld);
     }        

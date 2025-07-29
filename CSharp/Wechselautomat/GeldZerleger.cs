@@ -2,21 +2,21 @@ namespace Wechselautomat;
 
 public class GeldZerleger
 {
-    public static Dictionary<decimal, int> InScheineUndMuenzenZerlegen(decimal betrag)
+    public static Dictionary<EuroUndCents.Geldstueck, int> InScheineUndMuenzenZerlegen(decimal betrag)
     {
         if (betrag <= 0)
             throw new ArgumentException("Betrag darf nicht negativ oder 0 sein.");
 
-        var result = new Dictionary<decimal, int>();
+        var result = new Dictionary<EuroUndCents.Geldstueck, int>();
 
-        foreach (var wert in EuroUndCents.Geldstuecke)
+        foreach (var geldstueck in EuroUndCents.Alle)
         {
-            int anzahl = (int)(betrag / wert);
+            int anzahl = (int)(betrag / geldstueck.Wert);
             if (anzahl > 0)
             {
-                result[wert] = anzahl;
-                betrag -= anzahl * wert;
-                betrag = Math.Round(betrag, 2, MidpointRounding.AwayFromZero);
+                result[geldstueck] = anzahl;
+                betrag -= anzahl * geldstueck.Wert;
+                //betrag = Math.Round(betrag, 2, MidpointRounding.AwayFromZero);
             }
         }
         return result;

@@ -2,13 +2,19 @@
 
 public class Positivtests
 {
+    private EuroUndCents.Geldstueck GetGeldstueck(decimal wert)
+        => EuroUndCents.Alle.First(g => g.Wert == wert);
+
     [Fact]
     public void InScheineUndMuenzenZerlegen_EinfacherBetrag()
     {
         decimal betrag = 5m;
         var result = GeldZerleger.InScheineUndMuenzenZerlegen(betrag);
-        Assert.True(result.ContainsKey(5m));
-        Assert.Equal(1, result[5m]);
+
+        var fuenfEuro = GetGeldstueck(5m);
+
+        Assert.True(result.ContainsKey(fuenfEuro));
+        Assert.Equal(1, result[fuenfEuro]);
         Assert.Single(result);
     }
 
@@ -18,17 +24,21 @@ public class Positivtests
         decimal betrag = 7m;
         var result = GeldZerleger.InScheineUndMuenzenZerlegen(betrag);
 
-        Assert.Equal(1, result[5m]);
-        Assert.Equal(1, result[2m]);
+        var fuenfEuro = GetGeldstueck(5m);
+        var zweiEuro = GetGeldstueck(2m);
+
+        Assert.Equal(1, result[fuenfEuro]);
+        Assert.Equal(1, result[zweiEuro]);
         Assert.Equal(2, result.Count);
     }
 
     [Fact]
     public void FormatierungDesWechselgeldTexts_EinCent()
     {
-        var dict = new Dictionary<decimal, int>
+        var einCent = GetGeldstueck(0.01m);
+        var dict = new Dictionary<EuroUndCents.Geldstueck, int>
         {
-            { 0.01m, 1 }
+            { einCent, 1 }
         };
 
         var result = GeldFormatierer.FormatierungDesWechselgeldTexts(dict);
@@ -39,10 +49,13 @@ public class Positivtests
     [Fact]
     public void FormatierungDesWechselgeldTexts_EinCentUndEinEuro()
     {
-        var dict = new Dictionary<decimal, int>
+        var einEuro = GetGeldstueck(1m);
+        var einCent = GetGeldstueck(0.01m);
+
+        var dict = new Dictionary<EuroUndCents.Geldstueck, int>
         {
-            { 1m, 1 },
-            { 0.01m, 1 }
+            { einEuro, 1 },
+            { einCent, 1 }
         };
 
         var result = GeldFormatierer.FormatierungDesWechselgeldTexts(dict);
@@ -53,9 +66,10 @@ public class Positivtests
     [Fact]
     public void FormatierungDesWechselgeldTexts_ZweiZwanzigCent()
     {
-        var dict = new Dictionary<decimal, int>
+        var zwanzigCent = GetGeldstueck(0.20m);
+        var dict = new Dictionary<EuroUndCents.Geldstueck, int>
         {
-            { 0.20m, 2 }
+            { zwanzigCent, 2 }
         };
 
         var result = GeldFormatierer.FormatierungDesWechselgeldTexts(dict);
@@ -66,13 +80,13 @@ public class Positivtests
     [Fact]
     public void FormatierungDesWechselgeldTexts_VieleStuecke()
     {
-        var dict = new Dictionary<decimal, int>
+        var dict = new Dictionary<EuroUndCents.Geldstueck, int>
         {
-            { 5m, 1 },
-            { 2m, 1 },
-            { 0.50m, 1 },
-            { 0.20m, 2 },
-            { 0.01m, 3 }
+            { GetGeldstueck(5m), 1 },
+            { GetGeldstueck(2m), 1 },
+            { GetGeldstueck(0.50m), 1 },
+            { GetGeldstueck(0.20m), 2 },
+            { GetGeldstueck(0.01m), 3 }
         };
 
         var result = GeldFormatierer.FormatierungDesWechselgeldTexts(dict);
@@ -89,7 +103,7 @@ public class Positivtests
     [Fact]
     public void EdgeCase_KeinWechselgeld()
     {
-        var dict = new Dictionary<decimal, int>();
+        var dict = new Dictionary<EuroUndCents.Geldstueck, int>();
         var result = GeldFormatierer.FormatierungDesWechselgeldTexts(dict);
         Assert.Equal(string.Empty, result);
     }

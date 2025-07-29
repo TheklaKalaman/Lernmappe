@@ -36,7 +36,7 @@ public class Program
 
             decimal betrag = Bezahlvorgang.BerechneWechselgeld(decimal.Parse(preis), decimal.Parse(bezahlt));
             
-            Console.WriteLine("Wechselgeld: " + betrag + "");
+            Console.WriteLine("Wechselgeld: " + betrag + " Euro");
             Console.WriteLine(automat);
         }
 

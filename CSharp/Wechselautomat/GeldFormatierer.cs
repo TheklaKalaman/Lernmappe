@@ -2,7 +2,7 @@ namespace Wechselautomat;
 
 public class GeldFormatierer
 {
-    public static string FormatierungDesWechselgeldTexts(Dictionary<decimal, int> dict)
+    public static string? FormatierungDesWechselgeldTexts(Dictionary<decimal, int> dict)
     {
         List<string> teile = new();
 
@@ -28,7 +28,7 @@ public class GeldFormatierer
 
     public static decimal ParseBetrag(string eingabe)
     {
-        string normiert = eingabe.Replace('.', ',');
+        string? normiert = eingabe.Replace('.', ',');
         return decimal.Parse(normiert, System.Globalization.CultureInfo.GetCultureInfo("de-DE"));
     }
 }

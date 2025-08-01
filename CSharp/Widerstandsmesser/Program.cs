@@ -1,6 +1,6 @@
 ﻿using Widerstaende;
 
-Widerstand neuerWiderstand = new(Ring.Rot, Ring.Blau, Ring.Braun, Ring.Rot);
+Widerstand neuerWiderstand = new(Ring.Rot, Ring.Blau, Ring.Braun, Ring.Schwarz);
 Console.WriteLine(neuerWiderstand.BerechneWiderstandOhneToleranz());
 Console.WriteLine(neuerWiderstand.Toleranz());
 Console.WriteLine(neuerWiderstand.Minimum());

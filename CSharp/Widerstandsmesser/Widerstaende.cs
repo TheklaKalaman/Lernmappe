@@ -10,14 +10,14 @@ public class Widerstand
     public Widerstand(Ring farbe1, Ring farbe2, Ring farbe3, Ring farbe4)
     {
         Farbe1 = farbe1;
-        if (farbe1 == null)
+        if (farbe1.Zehner == null)
             throw new Exception("Ungültige Farbe an erster Position.");
         Farbe2 = farbe2;
-        if (farbe2 == null)
+        if (farbe2.Einer == null)
             throw new Exception("Ungültige Farbe an zweiter Position.");
         Farbe3 = farbe3;
         Farbe4 = farbe4;
-        if (farbe4 == null)
+        if (farbe4.Toleranz == null)
             throw new Exception("Ungültige Farbe an vierter Position.");
     }
     public double? BerechneWiderstandOhneToleranz() =>

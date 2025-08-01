@@ -1,30 +1,28 @@
 namespace Widerstaende;
 
-public static class Widerstaende
+public class Widerstand
 {
-    public static double BerechneWiderstandOhneToleranz(
-        string farbe1,
-        string farbe2,
-        string farbe3) =>
+    public Ring Farbe1 { get; }
+    public Ring Farbe2 { get; }
+    public Ring Farbe3 { get; }
+    public Ring Farbe4 { get; }
 
-        Ringe.KombiniereRing1UndRing2(
-            Ringe.WaehleZehnerAus(farbe1),
-            Ringe.WaehleEinerAus(farbe2)) *
-            Ringe.WaehleMultiplikatorAus(farbe3);
+    public Widerstand(Ring farbe1, Ring farbe2, Ring farbe3, Ring farbe4)
+    {
+        Farbe1 = farbe1;
+        Farbe2 = farbe2;
+        Farbe3 = farbe3;
+        Farbe4 = farbe4;
+    }
+    public double BerechneWiderstandOhneToleranz() =>
+        (Farbe1.Zehner * 10 + Farbe2.Einer) * Farbe3.Multiplikator;
 
-    public static double BerechneMaximumDesWiderstands(
-        string farbe1,
-        string farbe2,
-        string farbe3,
-        string farbe4) =>
+    public double Toleranz() =>
+        BerechneWiderstandOhneToleranz() * (Farbe4.Toleranz / 100);
 
-        Toleranz.Maximum(farbe1, farbe2, farbe3, farbe4);
+    public double Minimum() =>
+        BerechneWiderstandOhneToleranz() - Toleranz();
 
-    public static double BerechneMinimumDesWiderstand(
-        string farbe1,
-        string farbe2,
-        string farbe3,
-        string farbe4) =>
-
-        Toleranz.Minimum(farbe1, farbe2, farbe3, farbe4);
+    public double Maximum() =>
+        BerechneWiderstandOhneToleranz() + Toleranz();
 }

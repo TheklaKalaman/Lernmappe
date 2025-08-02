@@ -408,3 +408,5 @@ CSharp/FizzBuzzTDD.Test/UnitTest1.cs
 CSharp/FizzBuzzTDD/FizzBuzzTDD.csproj
 CSharp/FizzBuzzTDD/Program.cs
 CSharp/FizzBuzzTDD/FizzBuzzGame.cs
+Dafny/Basics.dfy
+Dafny/LeinoCourse.dfy

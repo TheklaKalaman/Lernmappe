@@ -7,10 +7,10 @@ public class Rechteck : IGeometrie
 
     public Rechteck(double hoehe, double breite)
     {
-        Fehlerbehandlung.NegativeWerte(hoehe, nameof(hoehe));
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(hoehe, nameof(hoehe));
         Hoehe = hoehe;
 
-        Fehlerbehandlung.NegativeWerte(breite, nameof(breite));
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(breite, nameof(breite));
         Breite = breite;
     }
 }

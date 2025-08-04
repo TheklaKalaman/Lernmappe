@@ -8,13 +8,13 @@ public class Trapez : IGeometrie
 
     public Trapez(double hoehe, double a, double c)
     {
-        Fehlerbehandlung.NegativeWerte(hoehe, nameof(hoehe));
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(hoehe, nameof(hoehe));
         Hoehe = hoehe;
 
-        Fehlerbehandlung.NegativeWerte(a, nameof(a));
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(a, nameof(a));
         SeiteA = a;
 
-        Fehlerbehandlung.NegativeWerte(c, nameof(c));
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(c, nameof(c));
         SeiteC = c;
     }
 }

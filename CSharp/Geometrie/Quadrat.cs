@@ -6,7 +6,7 @@ public class Quadrat : IGeometrie
 
     public Quadrat(double seitenlaenge)
     {
-        Fehlerbehandlung.NegativeWerte(seitenlaenge, nameof(seitenlaenge));
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(seitenlaenge, nameof(seitenlaenge));
         Seitenlaenge = seitenlaenge;
     }
     

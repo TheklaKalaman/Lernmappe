@@ -9,16 +9,16 @@ public class Dreieck : IGeometrie
 
     public Dreieck(double a, double b, double c, double hoehe)
     {
-        Fehlerbehandlung.NegativeWerte(a, nameof(a));
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(a, nameof(a));
         SeiteA = a;
 
-        Fehlerbehandlung.NegativeWerte(b, nameof(b));
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(b, nameof(b));
         SeiteB = b;
 
-        Fehlerbehandlung.NegativeWerte(c, nameof(c));
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(c, nameof(c));
         SeiteC = c;
 
-        Fehlerbehandlung.NegativeWerte(hoehe, nameof(hoehe));
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(hoehe, nameof(hoehe));
         Hoehe = hoehe;
     }
 }

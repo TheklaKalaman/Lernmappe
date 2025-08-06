@@ -1,0 +1,34 @@
+@startuml Klassendiagramm
+interface IOperationen
+IOperationen : +Auswerten() : double
+
+' "Ein- und zweistellige Operationen" sind als abstrakte Klassen
+' implementiert, da sie noch keine konkreten Rechenregeln vorgeben.
+abstract class ZweistelligeOperationen implements IOperationen
+ZweistelligeOperationen : -links : IOperationen
+ZweistelligeOperationen : -rechts : IOperationen
+
+abstract class EinstelligeOperationen implements IOperationen
+EinstelligeOperationen : -operand : IOperationen
+
+' Die Zahl ist immer ein Blatt eines Baums (also ganz außen)
+class Zahl implements IOperationen
+Zahl : -wert : double
+
+' Erst ab hier werden konkrete Rechenoperationen definiert.
+class Addition extends ZweistelligeOperationen
+Addition : +Auswerten() : double
+
+class Subtraktion extends ZweistelligeOperationen
+Subtraktion : +Auswerten() : double
+
+class Multiplikation extends ZweistelligeOperationen
+Multiplikation : +Auswerten() : double
+
+class Negation extends EinstelligeOperationen
+Negation : +Auswerten() : double
+
+class Wurzel extends EinstelligeOperationen
+Wurzel : +Auswerten() : double
+
+@enduml
